@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
-import searchReducer from '../components/search/searchReducer';
-import cardRestaurantReducer from '../components/card-restaurant/card-restaurantReducer';
+import cardGridReducer from '../containers/card-grid/cardGridReducer';
+import searchrestaurantsReducer from '../containers/search-restaurants/searchrestaurantsReducer';
 
 const reducers = combineReducers({
   form: formReducer,
-  search: searchReducer,
-  cardRestaurant:cardRestaurantReducer
+  cardGrid: cardGridReducer,
+  searchRestaurants: searchrestaurantsReducer 
 })
 
-export default reducers
+export default reducers;
