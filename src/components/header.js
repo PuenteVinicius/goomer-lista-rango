@@ -26,14 +26,12 @@ export default props => {
 
   return (
     <ThemeProvider theme={theme}>
-      <header>
-        <div className={classes.root}>
-          <AppBar position="static" color="primary">
-            <Toolbar>
-            </Toolbar>
-          </AppBar>
-        </div>
-      </header>
+      <div className={classes.root}>
+        <AppBar position="static" color="primary">
+          <Toolbar>
+          </Toolbar>
+        </AppBar>
+      </div>
     </ThemeProvider>
   );
 };

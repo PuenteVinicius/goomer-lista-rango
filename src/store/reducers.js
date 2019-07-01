@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import gridRestaurantsReducer from '../containers/grid-restaurants/gridRestaurantsReducer';
+import RestaurantsReducer from '../containers/restaurants/restaurantsReducer';
 import searchrestaurantsReducer from '../containers/search-restaurants/searchrestaurantsReducer';
 import menuReducer from '../containers/menu/menuReducer';
 
 const reducers = combineReducers({
-  gridRestaurants: gridRestaurantsReducer,
+  Restaurants: RestaurantsReducer,
   searchRestaurants: searchrestaurantsReducer,
   menu: menuReducer 
 })

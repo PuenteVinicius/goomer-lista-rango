@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from '@material-ui/core/styles';
 
 import SearchRestaurant from "../containers/search-restaurants/searchRestaurants";
-import CardGrid from "../containers/card-grid/cardGrid";
+import Restaurants from "../containers/restaurants/restaurants";
 
 export default props => {
 
@@ -29,14 +29,12 @@ export default props => {
   const classes = useStyles();
 
   return (
-    <main>
       <Container fixed>
         <Box className={classes.boxSearch}>
           <Typography variant="h5" className={classes.title}>Bem-vindo ao Lista Rango</Typography>
           <SearchRestaurant />
         </Box>
-        <CardGrid />
+        <Restaurants />
       </Container>
-    </main>
   );
 };

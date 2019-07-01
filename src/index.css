@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.grid-restaurants {
+.restaurants {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
