@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
-import { reducer as formReducer } from 'redux-form'
-import cardGridReducer from '../containers/card-grid/cardGridReducer';
+import gridRestaurantsReducer from '../containers/grid-restaurants/gridRestaurantsReducer';
 import searchrestaurantsReducer from '../containers/search-restaurants/searchrestaurantsReducer';
+import menuReducer from '../containers/menu/menuReducer';
 
 const reducers = combineReducers({
-  form: formReducer,
-  cardGrid: cardGridReducer,
-  searchRestaurants: searchrestaurantsReducer 
+  gridRestaurants: gridRestaurantsReducer,
+  searchRestaurants: searchrestaurantsReducer,
+  menu: menuReducer 
 })
 
 export default reducers;
