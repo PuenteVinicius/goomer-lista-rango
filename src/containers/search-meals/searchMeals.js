@@ -7,7 +7,7 @@ import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
-import { filterRestaurants } from './searchMealsActions'
+import { filterRestaurants } from '../restaurants/restaurantsActions'
 
 class SearchMeals extends Component {
   constructor(props) {
@@ -25,6 +25,9 @@ class SearchMeals extends Component {
   render() {
     return (
     <Paper className="search-restaurant search-restaurant--meals " >
+      <div className="search-restaurant__title">
+        <p>Buscar no cardápio</p>
+      </div>
       <InputBase onChange={this.props.filterRestaurants} className="search-restaurant__input" />
       <IconButton className="search-restaurant__button" aria-label="Search">
         <SearchIcon />
@@ -36,7 +39,7 @@ class SearchMeals extends Component {
 
 function mapStateToProps(state) {
   return {
-      value: state.searchRestaurants.value
+      value: state.Restaurants.value
   }
 }
 

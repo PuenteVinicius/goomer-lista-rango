@@ -107,6 +107,7 @@ code {
   max-width: 840px;
   height: 40px;
   border-radius: 40px !important;
+  background-color: #FBFBFB !important;
 }
 
 .search-restaurant--meals {
@@ -119,6 +120,21 @@ code {
 .search-restaurant__input {
   flex: 1;
   margin-left: 8px;
+}
+
+.search-restaurant__title {
+  background: white;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  width: 30%;
+  border-top-left-radius: 40px !important;
+  border-bottom-left-radius: 40px;
+  margin-left: -3px;
+}
+.search-restaurant__title p {
+  margin-left: 39px;
+  margin-right: 23px;
 }
 
 .search-restaurant__button {

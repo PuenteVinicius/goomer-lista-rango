@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
-
 import { bindActionCreators } from 'redux'
 
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
-import { filterRestaurants } from './searchRestaurantsActions'
+
+import { filterRestaurants } from '../restaurants/restaurantsActions'
 
 class SearchRestaurant extends Component {
   constructor(props) {
@@ -25,7 +25,10 @@ class SearchRestaurant extends Component {
   render() {
     return (
     <Paper className="search-restaurant" >
-      <InputBase onChange={this.props.filterRestaurants} className="search-restaurant__input" />
+      <div className="search-restaurant__title">
+        <p>Buscar estabelecimento</p>
+      </div>
+      <InputBase onChange={this.props.filterRestaurants} value={this.props.value} className="search-restaurant__input" />
       <IconButton className="search-restaurant__button" aria-label="Search">
         <SearchIcon />
       </IconButton>
@@ -36,7 +39,7 @@ class SearchRestaurant extends Component {
 
 function mapStateToProps(state) {
   return {
-    value: state.searchRestaurants.value
+    value: state.Restaurants.value
   }
 }
 
