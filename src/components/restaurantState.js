@@ -7,41 +7,18 @@ const moment = extendMoment(Moment);
 class RestaurantState extends Component {
   constructor(props, value) {
     super(props);
-
   }
   render() {
-
-    const format = 'HH:mm';
     const hours = this.props.value.hours || [];
     let isOpened = false;
-    let today = moment().format("d");
-    let todayHour = [];
-    
-    function isRestaurantOpened () {
 
-      todayHour = hours.filter(hour => {
-        return hour.days.includes(parseInt(today));
-      });
-
-      todayHour.forEach(hour => {
-        if(!isOpened) {
-          let startTime = moment(hour.from, format);
-          let endTime = moment(hour.to, format);
-          let time = moment();
-
-          if(startTime.isAfter(endTime)) endTime.add(1, 'days');
-          
-          isOpened = time.isBetween(startTime, endTime);
-        }
-      });
-    }
-    
-    setInterval(isRestaurantOpened(), 1000);
+    setInterval((isOpened = isRestaurantOpened(hours)), 1000);
 
     return (
       <div
         className={
-          isOpened ? "restaurant-state restaurant-state--open"
+          isOpened
+            ? "restaurant-state restaurant-state--open"
             : "restaurant-state restaurant-state--closed"
         }
       >
@@ -54,3 +31,28 @@ class RestaurantState extends Component {
 }
 
 export default RestaurantState;
+
+function isRestaurantOpened(hours) {
+  const format = "HH:mm";
+  let opened = false;
+  let todayHour = [];
+  let today = moment().format("d");
+  let time = moment();
+
+  if (hours.length === 0) opened = true;
+  else {
+    todayHour = hours.filter(hour => hour.days.includes(parseInt(today)));
+
+    todayHour.forEach(hour => {
+      if (!opened) {
+        let startTime = moment(hour.from, format);
+        let endTime = moment(hour.to, format);
+
+        if (startTime.isAfter(endTime)) endTime.add(1, "days");
+
+        opened = time.isBetween(startTime, endTime);
+      }
+    });
+  }
+  return opened;
+}
