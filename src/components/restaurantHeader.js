@@ -15,9 +15,9 @@ export default props => {
       <CardContent>
         <Typography variant="h5" component="h2" children={props.value.card.name}></Typography>
         <Typography variant="subtitle1" component="p" children={props.value.card.address}></Typography>
-        <Typography variant="caption" component="p" children={props.value.card.address}>Segunda à Sexta: <Typography variant="subtitle2" component="span" >11:30 às 15:00</Typography></Typography>
-        <Typography variant="caption" component="p" children={props.value.card.address}>Sábados: <Typography variant="subtitle2" component="span" >11:30 às 22:00</Typography></Typography>
-        <Typography variant="caption" component="p" children={props.value.card.address}>Domingos e Feriados: <Typography variant="subtitle2" component="span" >11:30 às 15:00</Typography></Typography>
+        <Typography variant="caption" component="p" children={props.value.card.address}>Segunda à Sexta: <Typography variant="caption" component="span" className="restaurant-header__subtitle"  >11:30 às 15:00</Typography></Typography>
+        <Typography variant="caption" component="p" children={props.value.card.address}>Sábados: <Typography variant="caption" component="span" className="restaurant-header__subtitle"  >11:30 às 22:00</Typography></Typography>
+        <Typography variant="caption" component="p" children={props.value.card.address}>Domingos e Feriados: <Typography variant="caption" component="span" className="restaurant-header__subtitle"  >11:30 às 15:00</Typography></Typography>
       </CardContent>
     </Card>
   );

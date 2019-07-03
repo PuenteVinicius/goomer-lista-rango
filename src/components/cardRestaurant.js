@@ -6,6 +6,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 
 import RestaurantState from "./restaurantState"
 import { Link } from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
 
 export default props => {
   return (
@@ -16,7 +17,7 @@ export default props => {
             titleTypographyProps={{variant:'subtitle1' }}
             className="card__text"
             title={props.value.card.name}
-            subheader={props.value.card.address}
+            subheader={<Typography component="p" variant="caption">{props.value.card.address}</Typography>}
           />
           <CardMedia
             className="card__media"

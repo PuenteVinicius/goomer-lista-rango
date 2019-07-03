@@ -18,6 +18,14 @@ const outerTheme = createMuiTheme({
     fontFamily:
       '"Montserrat", sans-serif',
   },
+  palette: {
+    primary: {
+      main: '#009CA3',
+    },
+    secondary: {
+      main: '#989898',
+    }
+  },
 });
 
 ReactDOM.render(
