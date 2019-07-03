@@ -7,7 +7,6 @@ export default function(state = INITIAL_STATE, action) {
         
         case'FILTER_RESTAURANTS':  
             return { ...state, restaurants: action.payload }
-        
         default:
             return state
     }
