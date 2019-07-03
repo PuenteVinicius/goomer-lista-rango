@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 
 export default props => {
+  const hours = props.value.card.hours;
+  
   return (
     <div className="card-wrapper">
       <Link to={`/restaurant/${props.value.card.id}`}>
@@ -24,7 +26,7 @@ export default props => {
             image={props.value.card.image}
           />
         </Card>
-        <RestaurantState />
+        <RestaurantState value={{hours}}/>
       </Link>
     </div>
   );

@@ -16,11 +16,11 @@ export default props => {
     return elem.id == cardId;
   });
   const card = restaurant[0];
-
+  console.log();
   return (
     <Container fixed>
       <RestaurantHeader value={{ card }} />
-      <SearchMeals />
+      <SearchMeals id={{ cardId }} />
       <Menu value={{ card }} />
     </Container>
   );

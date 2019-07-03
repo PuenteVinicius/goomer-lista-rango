@@ -48,6 +48,7 @@ const useStyles = makeStyles(theme => ({
 
 export default props => {
   const classes = useStyles();
+  
   return (
     <Card className={classes.card}>
       <CardContent className={classes.content}>
@@ -56,17 +57,14 @@ export default props => {
           <Typography component="h3" variant="subtitle1" className={classes.subText}>
             {props.value.meal.name}<Promo/>
           </Typography>
-          <Typography component="p" variant="caption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </Typography>
-          <Typography component="p" variant="subtitle1" color="primary">
-            R$ {props.value.meal.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
-            <Typography component="span" variant="caption" color="secondary" className={classes.price}>
-              R$ {props.value.meal.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
-            </Typography>
+          <Typography component="p" variant="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit.</Typography>
+          <Typography component="p" variant="subtitle1" color="primary">R$ {props.value.meal.price ? props.value.meal.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}): "0,00"}
+            <Typography component="span" variant="caption" color="secondary" className={classes.price}> R$ {props.value.meal.price ? props.value.meal.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}): "0,00"}</Typography> 
           </Typography>
         </div>
       </CardContent>
     </Card>
-  );
+  );  
 };
+
+
