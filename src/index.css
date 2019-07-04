@@ -1,3 +1,10 @@
+:rot {
+  --white: white;
+  --light-white: #FBFBFB;
+  --dark-purpple: #2B0D61;
+  --grey: #B5ABD4;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -11,9 +18,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 .MuiTypography-subtitle1 {
   line-height: 1.45 !important;
 }
+
 .restaurants {
   display: flex;
   justify-content: flex-start;
@@ -24,59 +33,59 @@ code {
 
 .restaurant-state {
   position: absolute;
-  right: 16px;
-  top: 4px;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 10px;
-  display: flex;
+  right: 16px;
+  top: 4px;
   justify-content: "center";
+  display: flex;
   align-items: "center";
+  border-radius: 50%;
+  line-height: 10px;
+  text-align: center;
 }
 
 .restaurant-state--open {
-  background-color: #2B0D61;
+  background-color: var(--dark-purpple);
 }
 
 .restaurant-state--closed {
-  background-color: #B5ABD4;
+  background-color: var(--grey);
 }
 
 .restaurant-state__text {
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  color: white;
+  text-align: center;
   font-size: 10px;
   font-weight: bold;
-  text-align: center;
+  color: var(--white);
 }
 
 .card-wrapper {
   position: relative;
   display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
   max-width: 405px;
+  width: 100%;
   height: 120px;
+  flex-direction: row-reverse;
   padding: 0;
   margin-bottom: 34px;
 
 }
 .card {
   position: absolute;
-  width: 100%;
-  height: 100px;
   display: flex;
-  padding: 0;
-  max-width: 367px;
-  margin-bottom: 0;
-  flex-direction: row-reverse;
   bottom: 0;
   left: 0;
+  width: 100%;
+  max-width: 367px;
+  height: 100px;
+  padding: 0;
+  flex-direction: row-reverse;
+  margin-bottom: 0;
 }
 
 .card__media {
@@ -92,14 +101,14 @@ code {
 }
 
 .search-restaurant {
-  padding: 2px 4px;
   display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 840px;
   height: 40px;
+  max-width: 840px;
+  width: 100%;
+  align-items: center;
+  padding: 2px 4px;
   border-radius: 40px !important;
-  background-color: #FBFBFB !important;
+  background-color: var(--light-white) !important;
 }
 
 .search-restaurant--meals {
@@ -115,14 +124,14 @@ code {
 }
 
 .search-restaurant__title {
-  background: white;
-  height: 44px;
   display: flex;
   align-items: center;
+  height: 44px;
   width: 30%;
   border-top-left-radius: 40px !important;
   border-bottom-left-radius: 40px;
   margin-left: -3px;
+  background: var(--white);
 }
 .search-restaurant__title p {
   margin-left: 39px;
@@ -135,37 +144,43 @@ code {
 
 .restaurant-header {
   display: flex;
+  height: 145px;
   margin-top: 24px;
   box-shadow: none !important;
-  height: 145px;
 }
 
 .restaurant-header__media {
   height: 145px;
-  max-width: 145px;
   width: 100%;
+  max-width: 145px;
 }
 
 .restaurant-header__subtitle {
   font-weight: bold !important;
+  margin-left: 5px !important;
 }
 
-.promo-almoco {
+.sale {
   position: absolute;
+  display: flex;
   top: 10px;
   right: 8px;
-  display: block;
-  text-align: center;
-  max-width: 90px;
-  width: 100%;
   height: 21px;
-  background: #2B0D61;
+  width: 100%;
+  max-width: 90px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   border-radius: 11px 11px 11px 11px;
+  background: var(--dark-purpple);
 }
 
-.promo-almoco__text {
-  color: white;
+.sale__text {
+  color: var(--white);
   font-weight: bold;
-  font-size: 8px;
-  line-height: 6px;
+  font-size: 0.55rem;
+}
+.sale__icon {
+  margin-right: 0.2rem;
+  font-size: 0.5rem;
 }

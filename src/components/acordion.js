@@ -1,11 +1,13 @@
 import React from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import CardMeal from '../components/cardMeal'
+
+import Meal from './meal'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,6 +43,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default props => {
+  
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -51,39 +54,35 @@ export default props => {
   var groups = [];
   var menu = {};
 
-  function mapGroups() {
-    props.menu.forEach(elem => {
-      if (groups.indexOf(elem.group) == -1) {
-        groups.push(elem.group);
-        menu[elem.group] = elem.group;
-        menu[elem.group] = [];
+  let mapGroups = () =>  {
+    props.menu.forEach(meal => {
+
+      if (groups.indexOf(meal.group) === -1) {
+        groups.push(meal.group);
+        menu[meal.group] = meal.group;
+        menu[meal.group] = [];
       }
     });
   }
 
-  function mapObject() {
-    props.menu.forEach(elem => {
-      menu[elem.group].push(elem);
+  let mapMeals = () => {
+    props.menu.forEach(meal => {
+      menu[meal.group].push(meal);
     });
   }
 
-  function renderMeals(meals) {
+  let renderMeals = meals => {
     return meals.map(meal => (
-      <CardMeal value={{meal}}></CardMeal>
+      <Meal value={{meal}}></Meal>
     ));
   }
 
-  function renderGroups() {
+  let renderGroups = () => {
     return Object.keys(menu).map(group => (
-      <ExpansionPanel
-        key={group}
-        className={classes.item}
-        expanded={expanded === group}
-        onChange={handleChange(group)}
+      <ExpansionPanel key={group} className={classes.item} 
+      expanded={expanded === group}onChange={handleChange(group)}
       >
-        <ExpansionPanelSummary
-          className={classes.itemContent}
-          expandIcon={<ExpandMoreIcon />}
+        <ExpansionPanelSummary className={classes.itemContent} expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
@@ -97,7 +96,7 @@ export default props => {
   }
 
   mapGroups();
-  mapObject();
+  mapMeals();
 
   return <div className={classes.root}>{renderGroups()}</div>;
 };
