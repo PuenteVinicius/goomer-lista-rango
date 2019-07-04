@@ -1,22 +1,23 @@
 import axios from "axios";
-const BASE_URL = "https://challange.goomer.com.br";
+import * as constants from '../../constants';
 
-export function getMenu(id) {
-  const request = axios.get(`${BASE_URL}/restaurants/${id}/menu`);
+export let getMenu = (id) => {
+  
+  const request = axios.get(`${constants.API_URL}/${constants.API_URL_RESTAURANTS}/${id}/${constants.API_URL_MENU}`);
   return {
     type: "GETTING__MENU",
     payload: request
   };
 }
 
-
-export function filterMeals(event) {
+export let filterMeals = event => {
   return dispatch => {
-    axios.get(`${BASE_URL}/restaurants/${event.id}/menu`).then(response => {
-      let arr = response.data.filter(elem => {
-        return elem.name.toLowerCase().includes(event.text.toLowerCase());
-      });
+    axios.get(`${constants.API_URL}/${constants.API_URL_RESTAURANTS}/${event.id}/${constants.API_URL_MENU}`).then(response => {
+
+      let arr = response.data.filter(elem => elem.name.toLowerCase().includes(event.text.toLowerCase()));
+      
       if (event.text.length === 0) arr = response.data;
+      
       dispatch({ type: "FILTER_MEALS", payload: arr });
     });
   };

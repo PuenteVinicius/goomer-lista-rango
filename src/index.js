@@ -5,13 +5,13 @@ import { Provider } from 'react-redux';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
-import Routes from './screens/routes';
+import Routes from './config/routes';
 
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
 
-import store from './store/store'
+import store from './config/store'
 
 const outerTheme = createMuiTheme({
   typography: {
