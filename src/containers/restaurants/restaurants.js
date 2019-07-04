@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import Box from "@material-ui/core/Box";
 
 import { getRestaurants } from './restaurantsActions'
-import CardRestaurant from "../../components/cardRestaurant";
+import Restaurant from "../../components/restaurant";
 
 class Restaurants extends Component {
 
@@ -17,7 +17,7 @@ class Restaurants extends Component {
     const renderCards = () => {
       const cards = this.props.restaurants || [];
       return cards.map(card => (
-        <CardRestaurant key={card.id} value={{card}} />
+        <Restaurant key={card.id} value={{card}} />
       ))
     }
 
@@ -29,12 +29,12 @@ class Restaurants extends Component {
   }
 }
 
-function mapStateToProps(state) {
+let mapStateToProps = state => {
   return {
-      restaurants: state.Restaurants.restaurants
+      restaurants: state.restaurants.restaurants
   }
 }
-function mapDispatchToProps(dispatch) {
+let mapDispatchToProps = dispatch => {
   return bindActionCreators({ getRestaurants }, dispatch);
 }
 

@@ -2,9 +2,9 @@ import { applyMiddleware, createStore } from 'redux';
 import promise from 'redux-promise';
 import multi from 'redux-multi';
 import thunk from 'redux-thunk';
-import reducers from './reducers';
+import reducers from '../store/reducers';
 
-function saveToLocalStorage(state) {
+let saveToLocalStorage = state => {
   try {
     const serializedState = JSON.stringify(state)
     localStorage.setItem('state', serializedState)
@@ -13,7 +13,7 @@ function saveToLocalStorage(state) {
   }
 }
 
-function loadFromLocalStorage() {
+let loadFromLocalStorage = () => {
   try {
     const serializedState = localStorage.getItem('state')
     if (serializedState === null) return undefined
