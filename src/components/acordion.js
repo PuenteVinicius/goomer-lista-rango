@@ -11,8 +11,7 @@ import Meal from './meal'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%",
-    maxWidth: "calc(100% - 400px)"
+    width: "100%"
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -38,7 +37,12 @@ const useStyles = makeStyles(theme => ({
   cardWraper: {
     display: "block",
     padding:0, 
-    paddingTop: 24
+    paddingTop: 24,      
+    textAlign: 'center',
+
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'inherit',
+    }
   }
 }));
 

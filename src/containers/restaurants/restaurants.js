@@ -23,7 +23,7 @@ class Restaurants extends Component {
 
     return (
     <Box className="restaurants">
-      {renderCards()}
+        {renderCards()}
     </Box>
     );
   }

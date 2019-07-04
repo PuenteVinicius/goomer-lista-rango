@@ -1,4 +1,4 @@
-:rot {
+* {
   --white: white;
   --light-white: #FBFBFB;
   --dark-purpple: #2B0D61;
@@ -25,7 +25,7 @@ code {
 
 .restaurants {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start
@@ -37,9 +37,9 @@ code {
   height: 48px;
   right: 16px;
   top: 4px;
-  justify-content: "center";
+  justify-content: center;
   display: flex;
-  align-items: "center";
+  align-items: center;
   border-radius: 50%;
   line-height: 10px;
   text-align: center;
@@ -103,7 +103,6 @@ code {
 .search-restaurant {
   display: flex;
   height: 40px;
-  max-width: 840px;
   width: 100%;
   align-items: center;
   padding: 2px 4px;
@@ -113,7 +112,6 @@ code {
 
 .search-restaurant--meals {
   width: 100%;
-  max-width: calc(100% - 400px);
   margin-top: 24px;
   margin-bottom: 16px;
 }
@@ -144,7 +142,7 @@ code {
 
 .restaurant-header {
   display: flex;
-  height: 145px;
+  height: auto;
   margin-top: 24px;
   box-shadow: none !important;
 }
@@ -180,7 +178,21 @@ code {
   font-weight: bold;
   font-size: 0.55rem;
 }
+
 .sale__icon {
   margin-right: 0.2rem;
   font-size: 0.5rem;
 }
+@media only screen and (max-width: 600px) {
+  
+  .restaurant-header {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center
+  }
+
+  .search-restaurant__title {
+    display: none;
+  }
+} 
+
