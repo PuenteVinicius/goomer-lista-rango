@@ -20,7 +20,7 @@ class SearchMeals extends Component {
     this.setState({ value: event.target.value });
     this.props.filterMeals({
       text: event.target.value,
-      id: this.props.id.cardId
+      id: this.props.id.restaurantId
     });
   }
 
@@ -43,13 +43,13 @@ class SearchMeals extends Component {
   }
 }
 
-function mapStateToProps(state) {
+let mapStateToProps = state => {
   return {
     value: state.menu.value
   };
 }
 
-function mapDispatchToProps(dispatch) {
+let mapDispatchToProps = dispatch => {
   return bindActionCreators({ filterMeals }, dispatch);
 }
 

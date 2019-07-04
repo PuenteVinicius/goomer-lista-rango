@@ -1,12 +1,12 @@
-const INITIAL_STATE = {restaurants: []}
+const INITIAL_STATE = {list: []}
 
 export default function(state = INITIAL_STATE, action) {
     switch (action.type) {
         case 'GETTING_RESTAURANTS':
-            return { ...state, restaurants: action.payload.data }
+            return { ...state, list: action.payload.data }
         
         case'FILTER_RESTAURANTS':  
-            return { ...state, restaurants: action.payload }
+            return { ...state, list: action.payload }
         default:
             return state
     }

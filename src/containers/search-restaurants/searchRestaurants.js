@@ -37,13 +37,13 @@ class SearchRestaurant extends Component {
   }
 }
 
-function mapStateToProps(state) {
+let mapStateToProps = state => {
   return {
-    value: state.Restaurants.value
+    value: state.restaurants.value
   }
 }
 
-function mapDispatchToProps(dispatch) {
+let mapDispatchToProps = dispatch => {
   return bindActionCreators({ filterRestaurants }, dispatch);
 }
 

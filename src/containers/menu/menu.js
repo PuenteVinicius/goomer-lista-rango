@@ -9,7 +9,7 @@ import Acordion from "../../components/acordion"
 class Menu extends Component {
   
   componentWillMount() {
-    this.props.getMenu(this.props.value.card.id);
+    this.props.getMenu(this.props.value.restaurant.id);
   }
 
   render() {
@@ -19,13 +19,13 @@ class Menu extends Component {
   }
 }
 
-function mapStateToProps(state) {
+let mapStateToProps = state => {
   return {
     menu: state.menu.menu
   };
 }
 
-function mapDispatchToProps(dispatch) {
+let mapDispatchToProps = dispatch => {
   return bindActionCreators({ getMenu }, dispatch);
 }
 
