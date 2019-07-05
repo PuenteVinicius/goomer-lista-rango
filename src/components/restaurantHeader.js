@@ -5,22 +5,19 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
-import {getDaysOfWeek} from "../helpers";
-
-import {NON_HOURS} from "../constants";
+import {NON_HOURS, DAYS_OF_WEEK} from "../constants";
 
 export default props => {
   const hours = props.value.restaurant.hours || [];
-  const daysOfWeek = getDaysOfWeek();
 
   let renderRestaurantHours = () => {
     return hours.map(hour => (
       <Typography key={hour.from} variant="caption" component="p">
         {hour.days.length > 1
-          ? `${daysOfWeek[hour.days[0]]} à ${
-              daysOfWeek[hour.days[hour.days.length - 1]]
+          ? `${DAYS_OF_WEEK[hour.days[0]]} à ${
+            DAYS_OF_WEEK[hour.days[hour.days.length - 1]]
             }`
-          : `${daysOfWeek[hour.days[0]]}`}
+          : `${DAYS_OF_WEEK[hour.days[0]]}`}
         <Typography
           variant="caption"
           component="span"

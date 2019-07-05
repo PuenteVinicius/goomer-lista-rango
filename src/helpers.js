@@ -1,13 +1,11 @@
 import Moment from "moment";
 import { extendMoment } from "moment-range";
-import { DAYS_OF_WEEK, MONEY_LOCATION, NON_HOURS, ALREADY_INSERTED, HOUR_FORMAT, NON_TEXT } from "./constants";
+import {MONEY_LOCATION, NON_HOURS, ALREADY_INSERTED, HOUR_FORMAT, NON_TEXT } from "./constants";
 
 const moment = extendMoment(Moment);
 
-  
 export let isOnTimeInterval = hours => {
     
-    const format = HOUR_FORMAT;
     let opened = false;
     let todayHour = [];
     let today = moment().format("d");
@@ -19,8 +17,8 @@ export let isOnTimeInterval = hours => {
 
       todayHour.forEach(hour => {
         if (!opened) {
-          let startTime = moment(hour.from, format);
-          let endTime = moment(hour.to, format);
+          let startTime = moment(hour.from, HOUR_FORMAT);
+          let endTime = moment(hour.to, HOUR_FORMAT);
 
           if (startTime.isAfter(endTime)) endTime.add(1, "days");
 
@@ -29,10 +27,6 @@ export let isOnTimeInterval = hours => {
       });
     }
     return opened;
-}
-
-export let getDaysOfWeek = () => {
-  return DAYS_OF_WEEK;
 }
 
 export let formatMoney = money => {    
