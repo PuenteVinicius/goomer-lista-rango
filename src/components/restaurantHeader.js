@@ -5,36 +5,40 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
-import helpers from "../helpers"
+import {getDaysOfWeek} from "../helpers";
+
+import {NON_HOURS} from '../constants';
 
 export default props => {
-  
   const hours = props.value.restaurant.hours || [];
-  const daysOfWeek = helpers.getDaysOfWeek();
+  const daysOfWeek = getDaysOfWeek();
 
-  let renderRestaurantDays = () => {
-    return hours.map(elem => (
-      <Typography key={elem.from} variant="caption" component="p">
-        {elem.days.length > 1
-          ? `${daysOfWeek[elem.days[0]]} à ${
-              daysOfWeek[elem.days[elem.days.length - 1]]
+  let renderRestaurantHours = () => {
+    return hours.map(hour => (
+      <Typography key={hour.from} variant="caption" component="p">
+        {hour.days.length > 1
+          ? `${daysOfWeek[hour.days[0]]} à ${
+              daysOfWeek[hour.days[hour.days.length - 1]]
             }`
-          : `${daysOfWeek[elem.days[0]]}`}
+          : `${daysOfWeek[hour.days[0]]}`}
         <Typography
           variant="caption"
           component="span"
           className="restaurant-header__subtitle"
         >
-          {elem.from} às {elem.to}
+          {hour.from} às {hour.to}
         </Typography>
       </Typography>
     ));
   }
 
-  let renderNonDays = () => {
+  let renderNonHours = () => {
     return (
-      <Typography variant="caption" component="p">
-      Aberto todos os dias em todos os horários
+      <Typography 
+        variant="caption" 
+        component="p"
+      >
+        Aberto todos os dias em todos os horários
       </Typography>
     )
   }
@@ -56,7 +60,7 @@ export default props => {
           component="p"
           children={props.value.restaurant.address}
         />
-        {(hours.length === 0) ? renderNonDays(): renderRestaurantDays()}
+        {(hours.length === NON_HOURS) ? renderNonHours(): renderRestaurantHours()}
       </CardContent>
     </Card>
   );

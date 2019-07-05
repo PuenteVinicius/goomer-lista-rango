@@ -10,8 +10,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import { filterMeals } from "../menu/menuActions";
 
 class SearchMeals extends Component {
-  constructor(props, value) {
-    super(props, value);
+  constructor(props) {
+    super(props);
     this.state = { value: props.initialValue };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -35,7 +35,10 @@ class SearchMeals extends Component {
           value={this.props.value}
           className="search-restaurant__input"
         />
-        <IconButton className="search-restaurant__button" aria-label="Search">
+        <IconButton 
+          className="search-restaurant__button" 
+          aria-label="Search"
+        >
           <SearchIcon />
         </IconButton>
       </Paper>

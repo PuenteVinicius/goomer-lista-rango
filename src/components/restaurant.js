@@ -20,12 +20,17 @@ export default props => {
             className="card__text"
             title={props.value.card.name}
             subheader={
-              <Typography component="p" variant="caption">
+              <Typography 
+                component="p" 
+                variant="caption">
                 {props.value.card.address}
               </Typography>
             }
           />
-          <CardMedia className="card__media" image={props.value.card.image} />
+          <CardMedia 
+            className="card__media" 
+            image={props.value.card.image} 
+          />
         </Card>
         <RestaurantState value={{ hours }} />
       </Link>

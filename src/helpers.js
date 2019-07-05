@@ -1,19 +1,19 @@
 import Moment from "moment";
 import { extendMoment } from "moment-range";
+import { DAYS_OF_WEEK, MONEY_LOCATION, NON_HOURS, ALREADY_INSERTED, HOUR_FORMAT } from './constants';
 
 const moment = extendMoment(Moment);
 
-export default {
   
-  isOnTimeInterval: hours => {
+export let isOnTimeInterval = hours => {
     
-    const format = "HH:mm";
+    const format = HOUR_FORMAT;
     let opened = false;
     let todayHour = [];
     let today = moment().format("d");
     let time = moment();
 
-    if (hours.length === 0) opened = true;
+    if (hours.length === NON_HOURS) opened = true;
     else {
       todayHour = hours.filter(hour => hour.days.includes(parseInt(today)));
 
@@ -29,22 +29,32 @@ export default {
       });
     }
     return opened;
-  },
-
-  getDaysOfWeek: () => {
-    return {
-      1: "Domingo",
-      2: "Segunda",
-      3: "Terça",
-      4: "Quarta",
-      5: "Quinta",
-      6: "Sexta",
-      7: "Sábado"
-    };
-  },
-
-  formatMoney: money => {    
-    return money.toLocaleString("pt-br", { style: "currency",currency: "BRL"}); 
-  } 
-  
 }
+
+export let getDaysOfWeek = () => {
+  return DAYS_OF_WEEK;
+}
+
+export let formatMoney = money => {    
+  return money.toLocaleString(MONEY_LOCATION, { style: "currency", currency: "BRL"}); 
+}
+
+export let mapGroups = menu => {
+  let groups = [];
+  menu.forEach(meal => {if(groups.indexOf(meal.group) === ALREADY_INSERTED) groups.push(meal.group)});
+  return groups;
+}
+
+export let mapMenu = (menu, groups) => {
+  let mapedMenu = {};
+  menu.forEach(meal => {
+    mapedMenu[meal.group] = [];
+  });
+  return mapedMenu;
+}
+
+export let mapMeals = (menu, mapedMenu) => {
+  menu.forEach(meal => { return mapedMenu[meal.group].push(meal)});
+  return mapedMenu;
+}
+

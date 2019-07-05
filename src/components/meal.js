@@ -6,19 +6,23 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import Modal from "@material-ui/core/Modal";
 
-import Sale from "./sale";
-import helpers from "../helpers";
+import ContentModal from "./contentModal"
+
+import Sales from "./sales"
+import { IMAGE_NOT_FOUND } from '../constants';
 
 const useStyles = makeStyles(theme => ({
   card: {
     display: "inline-block",
-    width: 386,
-    maxWidth: "100%",
+    width: "100%",
+    maxWidth: 386,
     height: 115,
     marginBottom: 24,
     marginRight: 15,
-    position: "relative"
+    position: "relative",
+    cursor: "pointer"
   },
   details: {
     display: "flex",
@@ -43,65 +47,58 @@ const useStyles = makeStyles(theme => ({
   subText: {
     width: "65%"
   },
-  price: {
-    textDecoration: "line-through",
-    marginLeft: 7
-  }
 }));
 
-export default props => {
+export default React.forwardRef((props, ref) =>  {
   const classes = useStyles();
-  const sales = props.value.meal.sales || [];
-  let price = props.value.meal.price;
+  const [open, setOpen] = React.useState(false);
+  const meal = props.value.meal;
 
-  let renderSales = () => {
-    if (sales.length === 0) {
-      return (
-        <Box>
-          <Typography component="p" variant="subtitle1" color="primary">R$ 
-            {price ? helpers.formatMoney(price): "0,00"}
-          </Typography>
-        </Box>
-      );
-    } else {
-      return sales.map(sale => (
-        <Box>
-          {helpers.isOnTimeInterval(sale.hours) ? (
-            <Typography component="p" variant="subtitle1" color="primary">
-              R$ {sale.price ? helpers.formatMoney(sale.price): "0,00"}
-              <Sale />
-              <Typography component="span" variant="caption" color="secondary" className={classes.price}>
-                R$ {price ? helpers.formatMoney(price): "0,00"}
-              </Typography>
-            </Typography>
-          ) : (
-            <Typography component="p" variant="subtitle1" color="primary">
-              R$ {props.value.meal.price ? helpers.formatMoney(props.value.meal.price): "0,00"}
-            </Typography>
-          )}
-        </Box>
-      ));
-    }
-  }
+  let handleOpen = () => {
+    setOpen(true);
+  };
+
+  let handleClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <Card className={classes.card}>
-      <CardContent className={classes.content}>
-        <CardMedia className={classes.cover} image={props.value.meal.image} />
-        <Box className={classes.text}>
-          <Typography
-            component="h3"
-            variant="subtitle1"
-            className={classes.subText}
-          >
-            {props.value.meal.name}
-          </Typography>
-          <Typography component="p" variant="caption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </Typography>
-          {renderSales()}
-        </Box>
-      </CardContent>
-    </Card>
+    <div>
+      <Card  
+          className={classes.card} 
+          onClick={handleOpen}
+        >
+        <CardContent className={classes.content}>
+          <CardMedia 
+            className={classes.cover} 
+            image={meal.image || IMAGE_NOT_FOUND} 
+          />
+          <Box className={classes.text}>
+            <Typography
+              component="h3"
+              variant="subtitle1"
+              className={classes.subText}
+            >
+              {meal.name}
+            </Typography>
+            <Typography 
+              component="p" 
+              variant="caption"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </Typography>
+            <Sales value={{meal}}/>
+          </Box>
+        </CardContent>
+      </Card>
+      <Modal
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+        open={open}
+        onClose={handleClose}
+      >
+        <ContentModal value={{meal}}/>
+      </Modal>
+    </div>
   );
-};
+});

@@ -1,24 +1,22 @@
 import axios from "axios";
-import * as constants from '../../constants';
+import { API_URL, API_URL_MENU, API_URL_RESTAURANTS, NON_TEXT } from '../../constants';
 
-export let getMenu = (id) => {
+export let getMenu = id => {
+  const request = axios.get(`${API_URL}/${API_URL_RESTAURANTS}/${id}/${API_URL_MENU}`);
   
-  const request = axios.get(`${constants.API_URL}/${constants.API_URL_RESTAURANTS}/${id}/${constants.API_URL_MENU}`);
   return {
-    type: "GETTING__MENU",
+    type: "GETTING_MENU",
     payload: request
   };
 }
 
-export let filterMeals = event => {
+export let filterMeals = ({ text, id }) => {
   return dispatch => {
-    axios.get(`${constants.API_URL}/${constants.API_URL_RESTAURANTS}/${event.id}/${constants.API_URL_MENU}`).then(response => {
-
-      let arr = response.data.filter(elem => elem.name.toLowerCase().includes(event.text.toLowerCase()));
+    axios.get(`${API_URL}/${API_URL_RESTAURANTS}/${id}/${API_URL_MENU}`).then(({ data }) => {
+      let meals = data.filter(meal => meal.name.toLowerCase().includes(text.toLowerCase()));
+      if (text.length === NON_TEXT) meals = data;
       
-      if (event.text.length === 0) arr = response.data;
-      
-      dispatch({ type: "FILTER_MEALS", payload: arr });
+      dispatch({ type: "FILTER_MEALS", payload: meals });
     });
   };
 }

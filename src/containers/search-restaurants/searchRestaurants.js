@@ -13,12 +13,10 @@ class SearchRestaurant extends Component {
   constructor(props) {
     super(props)
     this.state = {value: props.initialValue}
-
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event) {
-
     this.setState({ value: event.target.value })
   }
   
@@ -38,9 +36,7 @@ class SearchRestaurant extends Component {
 }
 
 let mapStateToProps = state => {
-  return {
-    value: state.restaurants.value
-  }
+  return { value: state.restaurants.value };
 }
 
 let mapDispatchToProps = dispatch => {

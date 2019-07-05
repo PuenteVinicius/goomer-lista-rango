@@ -10,10 +10,12 @@ export default props => (
       <Header />
     </header>
     <main>
-      <Route exact path="/" component={ScreenHome} />
+      <Route 
+        exact path="/" 
+        component={ScreenHome} 
+      />
       <Route
-        exact
-        path="/restaurant/:restaurantId"
+        exact path="/restaurant/:restaurantId"
         component={ScreenRestaurant}
       />
     </main>

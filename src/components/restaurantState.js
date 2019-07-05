@@ -1,11 +1,11 @@
 import React from "react";
-import helpers from "../helpers"
+import {isOnTimeInterval} from "../helpers"
 
 export default props => {
   const hours = props.value.hours || [];
   let isOpened = false;
   
-  setInterval((isOpened = helpers.isOnTimeInterval(hours)), 1000);
+  setInterval((isOpened = isOnTimeInterval(hours)), 1000);
   
   return (
     <div

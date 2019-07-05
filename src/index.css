@@ -126,6 +126,7 @@ code {
   align-items: center;
   height: 44px;
   width: 30%;
+  max-width: 260px;
   border-top-left-radius: 40px !important;
   border-bottom-left-radius: 40px;
   margin-left: -3px;

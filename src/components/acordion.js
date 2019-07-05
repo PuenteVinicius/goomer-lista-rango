@@ -7,6 +7,8 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
+import {mapGroups, mapMenu, mapMeals} from '../helpers';
+
 import Meal from './meal'
 
 const useStyles = makeStyles(theme => ({
@@ -35,19 +37,20 @@ const useStyles = makeStyles(theme => ({
     boxShadow: "none"
   },
   cardWraper: {
-    display: "block",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
     padding:0, 
     paddingTop: 24,      
-    textAlign: 'center',
 
     [theme.breakpoints.up('md')]: {
-      textAlign: 'inherit',
+      display: "flex",
+      justifyContent: "flex-start",
     }
   }
 }));
 
 export default props => {
-  
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -55,52 +58,40 @@ export default props => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  var groups = [];
-  var menu = {};
+  let groups = mapGroups(props.menu);
+  let menu = mapMenu(props.menu, groups);
+  menu = mapMeals(props.menu, menu);
 
-  let mapGroups = () =>  {
-    props.menu.forEach(meal => {
-
-      if (groups.indexOf(meal.group) === -1) {
-        groups.push(meal.group);
-        menu[meal.group] = meal.group;
-        menu[meal.group] = [];
-      }
-    });
-  }
-
-  let mapMeals = () => {
-    props.menu.forEach(meal => {
-      menu[meal.group].push(meal);
-    });
-  }
 
   let renderMeals = meals => {
     return meals.map(meal => (
-      <Meal value={{meal}}></Meal>
+      <Meal key={meal.name} value={{meal}}></Meal>
     ));
   }
 
   let renderGroups = () => {
     return Object.keys(menu).map(group => (
-      <ExpansionPanel key={group} className={classes.item} 
-      expanded={expanded === group}onChange={handleChange(group)}
+      <ExpansionPanel 
+        key={group} 
+        className={classes.item} 
+        expanded={expanded === group}
+        onChange={handleChange(group)}
       >
-        <ExpansionPanelSummary className={classes.itemContent} expandIcon={<ExpandMoreIcon />}
+        <ExpansionPanelSummary 
+          className={classes.itemContent} 
+          expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
           <Typography className={classes.heading}>{group}</Typography>
         </ExpansionPanelSummary>
+
         <ExpansionPanelDetails className={classes.cardWraper}>
           {renderMeals(menu[group])}
         </ExpansionPanelDetails>
       </ExpansionPanel>
     ));
   }
-
-  mapGroups();
-  mapMeals();
-
+  
   return <div className={classes.root}>{renderGroups()}</div>;
 };
