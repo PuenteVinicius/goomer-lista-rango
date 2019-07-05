@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { getMenu } from './menuActions'
+import { getMenu } from "../../store/actions/menu"
 
 import Acordion from "../../components/acordion"
 

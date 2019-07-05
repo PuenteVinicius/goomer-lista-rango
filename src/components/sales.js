@@ -6,8 +6,8 @@ import Typography from "@material-ui/core/Typography";
 
 import SaleIcon from "./saleIcon"
 
-import { formatMoney, isOnTimeInterval } from '../helpers';
-import { NON_HOURS, NON_MONEY } from '../constants';
+import { formatMoney, isOnTimeInterval } from "../helpers";
+import { NON_HOURS, NON_MONEY } from "../constants";
 
 const useStyles = makeStyles(theme => ({
   price: {

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
 
 import Box from "@material-ui/core/Box";
 
-import { getRestaurants } from './restaurantsActions'
+import { getRestaurants } from "../../store/actions/restaurants"
 import Restaurant from "../../components/restaurant";
 
 class Restaurants extends Component {

@@ -8,7 +8,7 @@ import Menu from "../containers/menu/menu";
 
 import store from "../config/store";
 
-import {FIRST_ELEMENT} from '../constants';
+import {FIRST_ELEMENT} from "../constants";
 
 export default props => {
   

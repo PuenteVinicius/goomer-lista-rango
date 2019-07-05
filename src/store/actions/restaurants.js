@@ -1,5 +1,6 @@
 import axios from "axios";
-import { API_URL, API_URL_RESTAURANTS, NON_TEXT } from '../../constants';
+import { API_URL, API_URL_RESTAURANTS } from "../../constants";
+import { filterText } from "../../helpers";
 
 export let getRestaurants = () => {
   const request = axios.get(`${API_URL}/${API_URL_RESTAURANTS}`);
@@ -15,9 +16,7 @@ export let filterRestaurants = ({ target }) => {
   
   return dispatch => {
     axios.get(`${API_URL}/restaurants`).then(({ data }) => {
-      let restaurants = data.filter(restaurant => restaurant.name.toLowerCase().includes(text.toLowerCase()));
-      if (text.length === NON_TEXT) restaurants = data;
-      
+      let restaurants = filterText(data, text);
       dispatch({ type: "FILTER_RESTAURANTS", payload: restaurants });
     });
   };

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
 
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 
-import { filterRestaurants } from '../restaurants/restaurantsActions'
+import { filterRestaurants } from "../../store/actions/restaurants"
 
 class SearchRestaurant extends Component {
   constructor(props) {

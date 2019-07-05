@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 
 import {getDaysOfWeek} from "../helpers";
 
-import {NON_HOURS} from '../constants';
+import {NON_HOURS} from "../constants";
 
 export default props => {
   const hours = props.value.restaurant.hours || [];

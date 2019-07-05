@@ -7,9 +7,9 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import {mapGroups, mapMenu, mapMeals} from '../helpers';
+import {mapGroups, mapMenu, mapMeals} from "../helpers";
 
-import Meal from './meal'
+import Meal from "./meal"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     padding:0, 
     paddingTop: 24,      
 
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       display: "flex",
       justifyContent: "flex-start",
     }

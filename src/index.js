@@ -1,29 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
-import Routes from './config/routes';
+import Routes from "./config/routes";
 
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from "./serviceWorker";
 
-import './index.css';
+import "./index.css";
 
-import store from './config/store'
+import store from "./config/store"
 
 const outerTheme = createMuiTheme({
   typography: {
     fontFamily:
-      '"Montserrat", sans-serif',
+      "Montserrat, sans-serif",
   },
   palette: {
     primary: {
-      main: '#009CA3',
+      main: "#009CA3",
     },
     secondary: {
-      main: '#989898',
+      main: "#989898",
     }
   },
 });
@@ -34,6 +34,6 @@ ReactDOM.render(
     <Routes />
   </ThemeProvider>
 </Provider>,
-document.getElementById('root'));
+document.getElementById("root"));
 serviceWorker.unregister();
 

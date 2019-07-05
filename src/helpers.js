@@ -1,6 +1,6 @@
 import Moment from "moment";
 import { extendMoment } from "moment-range";
-import { DAYS_OF_WEEK, MONEY_LOCATION, NON_HOURS, ALREADY_INSERTED, HOUR_FORMAT } from './constants';
+import { DAYS_OF_WEEK, MONEY_LOCATION, NON_HOURS, ALREADY_INSERTED, HOUR_FORMAT, NON_TEXT } from "./constants";
 
 const moment = extendMoment(Moment);
 
@@ -36,7 +36,7 @@ export let getDaysOfWeek = () => {
 }
 
 export let formatMoney = money => {    
-  return money.toLocaleString(MONEY_LOCATION, { style: "currency", currency: "BRL"}); 
+  return money.toLocaleString(MONEY_LOCATION, { style: 'currency', currency: 'BRL'}); 
 }
 
 export let mapGroups = menu => {
@@ -56,5 +56,11 @@ export let mapMenu = (menu, groups) => {
 export let mapMeals = (menu, mapedMenu) => {
   menu.forEach(meal => { return mapedMenu[meal.group].push(meal)});
   return mapedMenu;
+}
+
+export let filterText = (restaurants, text) => {
+  let filteredRestaurants = restaurants.filter(restaurants => restaurants.name.toLowerCase().includes(text.toLowerCase()));
+  if (text.length === NON_TEXT) filteredRestaurants = restaurants;
+  return filteredRestaurants;
 }
 

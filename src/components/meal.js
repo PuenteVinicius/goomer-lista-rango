@@ -11,7 +11,7 @@ import Modal from "@material-ui/core/Modal";
 import ContentModal from "./contentModal"
 
 import Sales from "./sales"
-import { IMAGE_NOT_FOUND } from '../constants';
+import { IMAGE_NOT_FOUND } from "../constants";
 
 const useStyles = makeStyles(theme => ({
   card: {

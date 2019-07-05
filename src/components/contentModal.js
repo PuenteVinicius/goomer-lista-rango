@@ -6,9 +6,9 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Divider from "@material-ui/core/Divider";
 import Container from "@material-ui/core/Container";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
-import { PRODUCT_IMAGE } from "../constants";
+import { PRODUCT_IMAGE, NON_MONEY } from "../constants";
 import { formatMoney } from "../helpers";
 
 function getModalStyle() {
@@ -43,10 +43,10 @@ const useStyles = makeStyles(theme => ({
   buttonContent: {
     display: "flex",
     flexDirection: "row",
-    textTransform: 'capitalize',
+    textTransform: "capitalize",
   },
   text: {
-    textTransform: 'capitalize',
+    textTransform: "capitalize",
   },
   button: {
     display: "flex",
@@ -101,7 +101,7 @@ export default React.forwardRef((props, ref) => {
               color="primary"
               className={classes.price}
             >
-              {formatMoney(meal.price)}
+              {formatMoney(meal.price || NON_MONEY)}
             </Typography>
           </Box>
           <Divider />
@@ -124,7 +124,7 @@ export default React.forwardRef((props, ref) => {
               Adicionar
             </Typography>
             <Typography component="p" variant="h6">
-            {formatMoney(meal.price)}
+            {formatMoney(meal.price || NON_MONEY)}
             </Typography>
           </Button>
         </Container>
