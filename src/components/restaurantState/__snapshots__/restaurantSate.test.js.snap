@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the homepage for the non logged in user 1`] = `
+<_default
+  value={
+    Array [
+      Object {
+        "days": Array [
+          2,
+          3,
+          4,
+          5,
+          6,
+        ],
+        "from": "09:00",
+        "to": "18:00",
+      },
+      Object {
+        "days": Array [
+          7,
+          1,
+        ],
+        "from": "11:00",
+        "to": "20:00",
+      },
+    ]
+  }
+>
+  <div
+    className="restaurant-state restaurant-state--open"
+  >
+    <span
+      className="restaurant-state__text"
+    >
+      Aberto Agora
+    </span>
+  </div>
+</_default>
+`;

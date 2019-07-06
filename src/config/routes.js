@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import ScreenHome from "../screens/home";
 import ScreenRestaurant from "../screens/restaurant";
 
-import Header from "../components/header";
+import Header from "../components/header/header";
 export default props => (
   <Router>
     <header>

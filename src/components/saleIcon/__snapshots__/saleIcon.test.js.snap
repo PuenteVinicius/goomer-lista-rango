@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the homepage for the non logged in user 1`] = `
+<_default
+  value={
+    Object {
+      "sale": Object {
+        "description": "Terça-feira doce",
+        "hours": Array [
+          Object {
+            "days": Array [
+              3,
+            ],
+            "from": "09:00",
+            "to": "18:00",
+          },
+        ],
+        "price": 5,
+      },
+    }
+  }
+>
+  <div
+    className="sale"
+  >
+    <p
+      className="sale__text"
+    >
+      <i
+        className="fas fa-award sale__icon"
+      />
+    </p>
+  </div>
+</_default>
+`;

@@ -2,7 +2,7 @@ import React from "react";
 
 import Container from "@material-ui/core/Container";
 
-import RestaurantHeader from "../components/restaurantHeader";
+import RestaurantHeader from "../components/restaurantHeader/restaurantHeader";
 import SearchMeals from "../containers/search-meals/searchMeals";
 import Menu from "../containers/menu/menu";
 

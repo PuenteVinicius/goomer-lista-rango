@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 
 import { getMenu } from "../../store/actions/menu"
 
-import Acordion from "../../components/acordion"
+import Acordion from "../../components/acordion/acordion"
 
 class Menu extends Component {
   
