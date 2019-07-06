@@ -68,7 +68,7 @@ Melhorias pertinentes:
 
 -**Melhorar testes de UI**: Para aumentar a cobertura de testes será necessário incluir mais testes que englobam a parte de UI , utilizando os snapshots com lógica.
 
--**Substituir  Material/Ui, pelo [Matearialize.CSS](https://materializecss.com/)**:  O material/UI é muito interessante, porém (ao me ver) ele adiciona uma camada de complexidade um pouco desnecessária ao projeto. Já o **materialize.CSS** como é apenas uma lib de CSS ele é simples e leve e combinado com o SASS pode ser muito efetivo.
+-**Substituir [Material/Ui](https://material-ui.com/) pelo [Matearialize.CSS](https://materializecss.com/)**:  O material/UI é muito interessante, porém (ao me ver) ele adiciona uma camada de complexidade um pouco desnecessária ao projeto. Já o **materialize.CSS** como é apenas uma lib de CSS ele é simples e leve e combinado com o SASS pode ser muito efetivo.
 
 -**Utilizar High Order Components**: No final do projeto foi percebido que muitos componentes ali poderiam ser otimizados se fosse aplicado utilizando o conceito de high order components. diminuindo o tamanho dos arquivos e deixando o código menos complexo
 
